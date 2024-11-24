@@ -1,0 +1,13 @@
+<h1>Symptoms for <%= @part.capitalize %></h1>
+
+<%= form_with url: next_page_path, method: :get do |form| %>
+  <div>
+    <p>Select the symptoms you are experiencing:</p>
+    <% @symptoms.each do |symptom| %>
+      <%= form.check_box :symptoms, { multiple: true }, symptom, nil %>
+      <%= form.label symptom %><br />
+    <% end %>
+  </div>
+
+  <%= form.submit 'Next' %>
+<% end %>

@@ -1,0 +1,13 @@
+<h1>Enter Your Details</h1>
+
+<%= simple_form_for @user_input do |f| %>
+  <%= f.input :gender, collection: ['Male', 'Female'], prompt: 'Select Gender' %>
+  
+
+ <%= f.input :age, input_html: { type: 'number', min: 1 }, label: 'Age' %>
+
+  
+  <%= f.button :submit, 'Next' %>
+<% end %>
+
+

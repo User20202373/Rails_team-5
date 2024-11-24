@@ -1,0 +1,27 @@
+<%= form_with(url: show_symptoms_path, method: :get) do |form| %>
+  <h1>Body Map</h1>
+  <p>증상을 보고하려는 신체 부위를 클릭합니다:</p>
+
+  <div class="body-image">
+    <%= image_tag @gender == 'Male' ? 'male_body.png' : 'female_body.png', alt: "#{@gender} body", class: "body-map" %>
+  </div>
+
+  <div class="body-part-selection">
+    <%= form.check_box :part, { multiple: true }, 'head', nil %>
+    <%= form.label :part, 'Head' %><br />
+    
+    <%= form.check_box :part, { multiple: true }, 'chest', nil %>
+    <%= form.label :part, 'Chest' %><br />
+    
+    <%= form.check_box :part, { multiple: true }, 'abdomen', nil %>
+    <%= form.label :part, 'Abdomen' %><br />
+    
+    <%= form.check_box :part, { multiple: true }, 'arm', nil %>
+    <%= form.label :part, 'Arm' %><br />
+    
+    <%= form.check_box :part, { multiple: true }, 'leg', nil %>
+    <%= form.label :part, 'Leg' %><br />
+  </div>
+
+  <%= form.submit 'Next' %>
+<% end %>
